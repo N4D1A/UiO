@@ -173,6 +173,18 @@ class Array:
             return self.__class__(self.shape, *list(map(lambda x:x-other, self.flattened_values)))
 
     def __rsub__(self, other):
+        """Element-wise subtracts this Array from a number or Array.
+
+        If the method does not support the operation with the supplied arguments
+        (specific data type or shape), it should return NotImplemented.
+
+        Args:
+            other (Array, float, int): The array or number being subtracted from.
+
+        Returns:
+            Array: the difference as a new array.
+
+        """
         if type(self.flattened_values[0])==bool or type(other)==bool or not isinstance(other, (Array, int, float)): # other: Array, int (bool X), float
             return NotImplemented
 
