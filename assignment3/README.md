@@ -1,6 +1,6 @@
 # Instapy
 
-A python package to turn an image into a grey image or a sepia image
+A python package to turn an image into a gray image or a sepia image
 
 ## Description
 
