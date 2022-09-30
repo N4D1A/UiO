@@ -1,13 +1,13 @@
 # Instapy
 
-A python package to turn an image into a grey image or a sepia image
+A python package to turn an image into a gray image or a sepia image
 
 ## Description
 
 This package provides a gray filter that converts an image to grayscale and a sepia filter that converts an image to a sepia tone. You can also test filters by different implementations, all with the same result.
 
 - Filters: gray, sepia
-- Implementations: Python, NumPy, Numba, Cython
+- Implementations: python, numpy, numba, cython
 - Image resizing (optional)
 - Saving the result to a file (optional)
 - Runtime measurement (optional)
@@ -18,6 +18,17 @@ This package provides a gray filter that converts an image to grayscale and a se
 ```bash
 python -m pip install .
 ```
+
+### Build-system requirements
+- setuptools
+- cython
+- numpy==1.21.*
+
+### Package dependencies
+- numpy
+- numba
+- pillow
+- line-profiler
 
 ## Usage
 ### 1. Command-line interface
@@ -37,13 +48,13 @@ positional arguments:
 options:
   -h, --help            show this help message and exit
   -o , --out            output filename with selected filter applied
-  -g, --gray            select gray filter (flag)
+  -g, --gray            select gray filter (flag) (default)
   -se, --sepia          select sepia filter (flag)
   -i {python,numba,numpy,cython}, 
   --implementation {python,numba,numpy,cython}
                         select implementation (default: python)
   -sc, --scale          select scale factor to resize (1 - original size, type: float)
-  -r, --runtime         check average time over N runs for selected filter (type: int)
+  -r, --runtime         check average runtime over N runs for selected filter (type: int)
   -k, --k               set sepia effect from 0-1 (0-100 percent). valid only with numpy implementation. (type: float)
                         
 ```
@@ -58,6 +69,11 @@ python -m instapy "./rain.jpg" -se -sc 0.8 -i numpy -k 0.5
 # apply the sepia filter with numpy implementation to "rain.jpg"
 # with sepia filter effect to 0.5 (50%) and resize the image to 0.8 of its original size
 
+```
+```bash
+python -m instapy "./rain.jpg" -i cython -r 5
+# apply the gray filter with cython implementation to "rain.jpg"
+# and check the average runtime over 5 runs for selected filter (gray with cython)
 ```
 ### 2. Import modules in other python files
 

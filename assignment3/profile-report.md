@@ -23,8 +23,26 @@ A few questions below to help understand the kind of information we can get from
 
 selected profile: 
 line_profiler python_color2sepia  
+```
+Total time: 25.0729 s
+...
+Function: python_color2sepia at line 23
 
-It takes about 100% of the accumulated time for nested loops to apply sepia filter with pure python implementation. Considering that the runtime with numpy implementation using vectorizing is greatly reduced, improving the nested loop steps using vectorizing will help improve performance.
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+    23                                           def python_color2sepia(image: np.array) -> np.array:
+    ...
+    31         3        450.0    150.0      0.0      sepia_image = np.empty_like(image, dtype=np.uint8) # shape: 3d
+    ...
+    35      1443      13770.0      9.5      0.0      for i in range(image.shape[0]):
+    36    923040    8584482.0      9.3      3.4          for j in range(image.shape[1]):
+    37    921600   80406240.0     87.2     32.1              sepia_image[i,j][0] = min(255, image[i][j][0]*0.393+image[i][j][1]*0.769+image[i][j][2]*0.189)
+    38    921600   80820424.0     87.7     32.2              sepia_image[i,j][1] = min(255, image[i][j][0]*0.349+image[i][j][1]*0.686+image[i][j][2]*0.168)
+    39    921600   80904000.0     87.8     32.3              sepia_image[i,j][2] = min(255, image[i][j][0]*0.272+image[i][j][1]*0.534+image[i][j][2]*0.131)
+    ...
+    43         3         32.0     10.7      0.0      return sepia_image
+```
+From the selected profiling result, we can see that the nested loops takes up about 100% of the accumulated time. Considering that the runtime with numpy implementation using vectorizing is greatly reduced, improving the nested loop steps using vectorizing will help improve performance.
 
 
 

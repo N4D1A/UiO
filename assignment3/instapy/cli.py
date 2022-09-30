@@ -75,8 +75,7 @@ def main(argv=None):
 
     # parse arguments and call run_filter
     args = parser.parse_args(argv)
-    print(args)
-
+    
     if args.k:
         if not args.sepia or not args.implementation=='numpy':
             raise ValueError(f"k works only in sepia filter with numpy implementation")
