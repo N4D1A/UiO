@@ -41,6 +41,6 @@ puvicorn app:app --port 5000
     Go to the web address `http://127.0.0.1:5000/`
 
 ## Comments to the grader
-I have done tasks 5.1 and 5.2, and the test passed on both tasks.
+I have done **tasks 5.1 and 5.2**, and the tests passed on both tasks.
 
 \*The assignment text says to fetch data for 8 days including today when 'days'=7, but when I did that, an error occured in `test_fetch_prices()`. So, I implemented 'days' in `fetch_prices()` to be the period including today.
