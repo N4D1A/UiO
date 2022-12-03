@@ -43,5 +43,4 @@ puvicorn app:app --port 5000
 ## Comments to the grader
 I have done tasks 5.1 and 5.2, and the test passed on both tasks.
 
-\*The assignment text says to fetch data for 8 days including today when 'days'=7,
-but in that case, an error occured in `test_fetch_prices()`, so I implemented 'days' in `fetch_prices()` to be the period including today.
+\*The assignment text says to fetch data for 8 days including today when 'days'=7, but when I did that, an error occured in `test_fetch_prices()`. So, I implemented 'days' in `fetch_prices()` to be the period including today.
